@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    } 
+
+    .form {
+      --gray: #999;
+      --red: #f33;
+      --green: #33a733;
+      --blue: #3aa;
+      --block: 15px;
+    }
+
+    .form {
+      width: 500px;
+    }
+
+    .field {
+      display: inline-flex;
+      width: 100%;
+      margin: 5px;
+      flex-flow: wrap;
+    }
+
+    .validate {
+      position: relative;
+      width: var(--block);
+      height: var(--block);
+      padding: 5px;
+      border: 1px solid var(--gray);
+      border-left: 0;
+      order: 1;
+      color: var(--gray);
+    }
+
+    .ico {
+      width: var(--block);
+      height: var(--block);
+      padding: 5px;
+      border: 1px solid var(--gray);
+      border-right: 0;
+      order: 0;
+      color: var(--gray);
+
+    }
+
+    .validate:before {
+      content: 'close';
+      position: absolute;
+      font-family: 'Material Icons';
+      top: 0;
+      left: 3px;
+      font-size: 20px;
+    }
+
+     .side {
+      position: relative;
+    }
+
+    .ico > i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 25px;
+    }
+
+    textarea,
+    input {
+      flex: 1 1 auto;
+      height: var(--block);
+      padding: 5px;
+      border: 1px solid var(--gray);
+      outline: none;
+      box-shadow: none;
+      order: 1;
+    }
+
+    input {
+      border-right: 0;
+      border-left: 0;
+    }
+
+    input:not(:placeholder-shown):valid ~ .side,
+    input:not(:placeholder-shown):valid,
+    textarea:not(:placeholder-shown):valid {
+      border-color: var(--green);
+    }
+
+    input:invalid ~ .side, 
+    input:invalid,
+    textarea:invalid {
+      border-color: var(--red);
+
+    }
+
+     input:invalid ~ .side {
+      color: var(--red);
+      background: var(--red);
+      color: #fff;
+    }
+
+    
+    input[type="date"]:invalid ~ .side,
+    input[type="date"]:invalid {
+      border-color: var(--gray);
+      color: var(--gray);
+      background: #fff;
+
+    }
+
+
+    input:not(:placeholder-shown):valid ~ .side {
+        color: #fff;
+      background: var(--green);
+    }
+
+    input:not(:placeholder-shown):valid ~ .validate:before {
+      content: 'check';
+    }
+
+    input[type="submit"].btn-submit {
+      border-color: var(--gray);
+      height: 2em;
+      color: #fff;
+      background: var(--gray);
+      font-size: 1em;
+      transition: 0.5s;
+    }
+
+    input[type="submit"].btn-submit:hover {
+      background: var(--green);
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div class="form">
+    <form action="">
+      <div class="field">
+        <input type="text" name="surname_first_name" pattern="^[a-zA-Z]+\s[a-zA-Z]+$" placeholder="Surname Name">
+        <div class="hint"></div>
+        <div class="validate side"></div>
+        <div class="ico side">
+          <i class="material-icons">
+            person
+          </i>
+        </div>
+      </div>
+      <div class="field">
+        <input type="email" name="email" placeholder="Email@mail.com">
+        <div class="hint"></div>
+        <div class="validate side"></div>
+        <div class="ico side">
+          <i class="material-icons">
+            alternate_email
+          </i>
+        </div>
+      </div>
+      <div class="field">
+        <input type="url" name="url" placeholder="Url">
+        <div class="hint"></div>
+        <div class="validate side"></div>
+        <div class="ico side">
+          <i class="material-icons">
+            public
+          </i>
+        </div>
+      </div>
+      <div class="field">
+        <input type="date" name="date" min="1900-01-01" placeholder="Date brith" value="1800-01-01">
+        <div class="hint"></div>
+        <div class="validate side"></div>
+        <div class="ico side">
+          <i class="material-icons">
+            insert_invitation
+          </i>
+        </div>
+      </div>
+      <div class="field">
+        <input type="password" name="password" placeholder="Password" pattern=".{8,}">
+        <div class="hint"></div>
+        <div class="validate side"></div>
+        <div class="ico side">
+          <i class="material-icons">
+            lock
+          </i>
+        </div>
+      </div>
+       <div class="field">
+        <textarea name="message" id="" cols="30" rows="10" min="5" max="1000" placeholder="Message"></textarea>
+        <div class="hint"></div>
+      </div>
+      <div class="field">
+        <input class="btn-submit" type="submit" value="submit">
+      </div>  
+    </form>
+  </div>
+  
+</body>
+</html>
